@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissions by Address</title>
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+    <div class="container my-12 mx-auto px-4 md:px-12">
+        <div class="h-56 grid grid-cols-3 gap-4 content-center" >
+            <span class="text-gray-500 font-semibold text-xl">Address: {{ search_address }}</span>
+        </div>
+        <div class="max-w-full mx-4 py-6 sm:mx-auto sm:px-6 lg:px-8">
+            <div class="sm:flex sm:space-x-4">
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow mb-4 w-full sm:w-1/3 sm:my-8">
+                    <div class="bg-white p-5">
+                        <div class="sm:flex sm:items-start">
+                            <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                                <h3 class="text-m leading-6 font-medium text-gray-700">Number of assets available</h3>
+                                <p class="text-3xl font-bold text-black">{{ total_assets }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow mb-4 w-full sm:w-1/3 sm:my-8">
+                    <div class="bg-white p-5">
+                        <div class="sm:flex sm:items-start">
+                            <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                                <h3 class="text-m leading-6 font-medium text-gray-700">Number of Sales</h3>
+                                <p class="text-3xl font-bold text-black">{{ total_sales }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow mb-4 w-full sm:w-1/3 sm:my-8">
+                    <div class="bg-white p-5">
+                        <div class="sm:flex sm:items-start">
+                            <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                                <h3 class="text-m leading-6 font-medium text-gray-700">Approximate total CO2 Cost</h3>
+                                <p class="text-3xl font-bold text-black">{{total_carbon}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>

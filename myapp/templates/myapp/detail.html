@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NFTs WATCHER</title>
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <header class="flex content-center items-center justify-between leading-tight p-4 md:p-6">
+        <p class="ml-2 text-xl">
+            CO2 Emissions by: {{ name }}
+        </p>
+    </header>
+    
+    <div class="w-50 text-sm font-medium text-gray-900 bg-white rounded-m border border-gray-400 dark:bg-gray-600 dark:border-gray-600 dark:text-white">
+        <canvas id="myChart" class="w-2"></canvas>
+    </div>
+    
+    <footer class="flex items-center justify-between leading-none p-4 md:p-6">
+        <p class="ml-2 text-xl">
+            Total Carbon Cost: {{ total }}
+        </p>
+    </footer>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Minting', 'Sales', 'Total'],
+        datasets: [{
+            label: 'Total CO2eq Emissions (kgCO2)',
+            data: [{{minting}}, {{total_sales}}, {{ total }},],
+            backgroundColor: [
+                'rgba(255, 99, 132)',
+                'rgba(54, 162, 235',
+                'rgba(255, 206, 86',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+            ],
+            borderWidth: 10
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
